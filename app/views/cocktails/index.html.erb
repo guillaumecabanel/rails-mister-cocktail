@@ -1,0 +1,19 @@
+<div class="row">
+  <% @cocktails.each do |cocktail| %>
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= cocktail.name.capitalize %></h5>
+          <p class="card-text">
+            <ul class="list-group">
+              <% cocktail.doses.each do |dose| %>
+                <li class="list-group-item"><%= dose.description %> <%= dose.ingredient.name %></li>
+              <% end %>
+            </ul>
+          </p>
+          <%= link_to 'See more details', cocktail_path(cocktail), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
